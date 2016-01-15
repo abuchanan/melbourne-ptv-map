@@ -18,6 +18,23 @@ module.directive('mptvaMapbox', function() {
         center: [145.06, -37.79],
         zoom: 10
       });
+
+
+      mapbox.on('load', function() {
+        mapbox.addSource("routes", {
+          type: "geojson",
+          data: "http://localhost:3000/data/shapes/4-475-C-mjp-1.10.R.json",
+        });
+
+        mapbox.addLayer({
+          "id": "route-lines",
+          "type": "line",
+          "source": "routes",
+          "paint": {
+            "line-color": "#3b52ec",
+          }
+        });
+      });
     }
   };
 });
