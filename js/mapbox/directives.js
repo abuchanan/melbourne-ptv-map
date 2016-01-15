@@ -5,11 +5,14 @@ var module = angular.module('MelbournePTVApp.mapbox', []);
 
 Mapbox.accessToken = 'pk.eyJ1IjoiYnVjaGFuYWUiLCJhIjoiY2loNzR0Y3U5MGd2OXZka3QyMHJ5bXo0ZCJ9.HdT8S-gTjPRkTb4v8Z23KQ';
 
-module.directive('mptvaMapbox', function() {
+module.directive('mapbox', function() {
   return {
-    restrict: 'C',
-    scope: {},
+    restrict: 'A',
+    scope: {
+      routeUrl: '@routeUrl'
+    },
     link: function(scope, element, attrs) {
+      console.log(element);
       var container = element[0];
 
       var mapbox = new Mapbox.Map({
@@ -23,7 +26,7 @@ module.directive('mptvaMapbox', function() {
       mapbox.on('load', function() {
         mapbox.addSource("routes", {
           type: "geojson",
-          data: "http://localhost:3000/api/shape/1",
+          data: scope.routeUrl,
         });
 
         mapbox.addLayer({

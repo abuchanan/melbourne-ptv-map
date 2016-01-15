@@ -16,7 +16,12 @@
   <body>
     <div id='app-container' ng-app="MelbournePTVApp">
       <div ng-controller="MapController">
-        <div class='mptva-mapbox'></div>
+        <div id='sidebar'>
+          <div ng-repeat='route in routes'>
+            <span ng-click='select_route(route.shape_id)'>{{ route.long_name }}</span>
+          </div>
+        </div>
+        <div mapbox class='mapbox-container' route-url='{{ routeUrl}}'></div>
       </div>
     </div>
 

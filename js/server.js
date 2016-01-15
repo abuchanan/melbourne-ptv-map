@@ -34,11 +34,21 @@ module.exports = function(directory) {
            });
   });
 
+  app.get('/api/routes/', function(request, response) {
+    db.all("SELECT DISTINCT routes.long_name, trips.shape_id FROM routes " +
+           "JOIN trips ON routes.id = trips.route_id",
+           function(err, rows) {
+             if (!err) {
+               // TODO
+               console.log(err);
+             }
+             response.json(rows);
+           });
+  });
+
   app.use(express.static(directory));
 
-  // handle every other route with index.html, which will contain
-  // a script tag to your application's JavaScript file(s).
-  app.get('*', function (request, response){
+  app.get('/', function (request, response){
     response.sendFile(path.resolve(directory, 'index.html'));
   });
 

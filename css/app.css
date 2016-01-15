@@ -1,6 +1,16 @@
-.mptva-mapbox {
+.mapbox-container {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
+}
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+  z-index: 100;
+  background-color: white;
+  padding: 20px;
 }
