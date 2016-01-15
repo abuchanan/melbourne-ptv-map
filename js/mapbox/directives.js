@@ -23,7 +23,7 @@ module.directive('mptvaMapbox', function() {
       mapbox.on('load', function() {
         mapbox.addSource("routes", {
           type: "geojson",
-          data: "http://localhost:3000/data/shapes/4-475-C-mjp-1.10.R.json",
+          data: "http://localhost:3000/api/shape/1",
         });
 
         mapbox.addLayer({
