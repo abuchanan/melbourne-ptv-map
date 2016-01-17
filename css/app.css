@@ -12,14 +12,13 @@
   width: 20%;
   z-index: 100;
   background-color: white;
-  padding: 20px;
+  padding: 20px 0;
   overflow-y: scroll;
 }
 
 .sidebar-route {
   cursor: pointer;
-  padding: 0 5px;
-  margin: 4px 0;
+  padding: 4px 15px;
 }
 
 .sidebar-route:hover,
