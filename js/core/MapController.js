@@ -14,6 +14,16 @@ function RoutesService($http) {
 RoutesService.$inject = ['$http'];
 
 function MapController($scope, Routes) {
+  // These are route short codes. This defines the order of the results.
+  var routeOrder = [
+    '1', '3/3a', '5', '6', '8', '11', '12', '16', '19', '30', '35',
+    '48', '55', '57', '59', '64', '67', '70', '72', '75', '78',
+    '82', '86', '96', '109'];
+
+  $scope.getRouteOrder = function(r) {
+    return routeOrder.indexOf(r.short_name);
+  }
+
   $scope.selected = [];
   $scope.routes = [];
 

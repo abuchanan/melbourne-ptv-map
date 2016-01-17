@@ -20,8 +20,8 @@ module.directive('mapbox', function() {
       var mapbox = new Mapbox.Map({
         container: container,
         style: 'mapbox://styles/mapbox/streets-v8',
-        center: [145.06, -37.79],
-        zoom: 10
+        center: [144.89, -37.81],
+        zoom: 10.4
       });
 
       mapbox.on('load', function() {
