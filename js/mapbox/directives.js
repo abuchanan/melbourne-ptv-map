@@ -12,7 +12,6 @@ module.directive('mapbox', function() {
       routeUrl: '@routeUrl'
     },
     link: function(scope, element, attrs) {
-      console.log(element);
       var container = element[0];
 
       var mapbox = new Mapbox.Map({
@@ -36,6 +35,15 @@ module.directive('mapbox', function() {
           "paint": {
             "line-color": "#3b52ec",
           }
+        });
+
+
+        scope.$watch('routeUrl', function(routeUrl) {
+          mapbox.removeSource("routes");
+          mapbox.addSource("routes", {
+            type: "geojson",
+            data: routeUrl
+          });
         });
       });
     }

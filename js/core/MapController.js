@@ -2,22 +2,13 @@ function RoutesService($http) {
   return {
     listAll: function() {
       return $http
-        .get('/api/routes/')
+        .get('/api/routes/', {params: {filterType: 0}})
         .then(function(response) {
           return response.data;
         }, function(response) {
           // TODO
         });
     },
-    getShape: function(shapeId) {
-      return $http
-        .get('/api/shape/:shapeId', {shapeId: shapeId})
-        .then(function(response) {
-          console.log(response);
-        }, function(response) {
-          // TODO
-        });
-    }
   }
 }
 RoutesService.$inject = ['$http'];
@@ -30,6 +21,7 @@ function MapController($scope, Routes) {
 
   $scope.select_route = function(shapeId) {
     console.log("select route", shapeId);
+    $scope.routeUrl = "http://localhost:3000/api/shape/" + shapeId;
   };
 
   $scope.routeUrl = "http://localhost:3000/api/shape/2";
