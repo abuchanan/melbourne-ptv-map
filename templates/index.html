@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
@@ -9,29 +10,35 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel='stylesheet'  href='/css/mapbox-gl.css'/>
-
     <link rel="stylesheet" href="/css/app.css"/>
-
   </head>
+
   <body>
     <div id='app-container' ng-app="MelbournePTVApp">
       <div ng-controller="MapController">
         <div id='sidebar' ng-cloak>
-          <div ng-repeat='route in routes | orderBy: getRouteOrder'>
-            <div
-              class='sidebar-route'
-              ng-class='{selected: isSelected(route)}'
-              ng-click='toggleRoute(route.shape_id)'>
-              <span class='route-short-name'>{{ route.short_name }}</span>
-              <span class='route-long-name'>{{ route.long_name }}</span>
-            </div>
+
+          <ul>
+            <li ng-click="selectedPane = 'tram'">Tram</li>
+            <li ng-click="selectedPane = 'bus'">Bus</li>
+          </ul>
+
+          <div ng-show="selectedPane == 'tram'">
+            Tram
+            <route-list routes='routes' selected='selectedRoutes' />
           </div>
+
+          <div ng-show="selectedPane == 'bus'">
+            Bus
+            <route-list routes='routes' selected='selectedRoutes' />
+          </div>
+
         </div>
         <div
           mapbox
           class='mapbox-container'
           shapes-url='/api/shapes/'
-          visible-shapes='selected'></div>
+          visible-shapes='selectedRoutes'></div>
       </div>
     </div>
 

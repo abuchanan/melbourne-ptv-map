@@ -21,12 +21,6 @@ function build_dest() {
 }
 
 
-var toCopy = [
-  'css/**/*.css',
-  'templates/index.html',
-];
-
-
 var BuildResult = {
   number: 0,
   errors: [],
@@ -85,8 +79,12 @@ function copy_index_html() {
   return vfs.src('templates/index.html').pipe(build_dest());
 }
 
+function copy_templates() {
+  return vfs.src('templates/**/*.html', {base: ROOT}).pipe(build_dest());
+}
+
 function copy_files() {
-  return sequence(copy_css, copy_index_html);
+  return sequence(copy_css, copy_index_html, copy_templates);
 }
 
 
