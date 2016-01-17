@@ -16,7 +16,7 @@
   <body>
     <div id='app-container' ng-app="MelbournePTVApp">
       <div ng-controller="MapController">
-        <div id='sidebar'>
+        <div id='sidebar' ng-cloak>
           <div ng-repeat='route in routes | orderBy: getRouteOrder'>
             <div
               class='sidebar-route'
