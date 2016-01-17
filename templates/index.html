@@ -18,7 +18,8 @@
       <div ng-controller="MapController">
         <div id='sidebar'>
           <div ng-repeat='route in routes'>
-            <span ng-click='select_route(route.shape_id)'>{{ route.long_name }}</span>
+            <span class='sidebar-route'
+                  ng-click='select_route(route.shape_id)'>{{ route.long_name }}</span>
           </div>
         </div>
         <div mapbox class='mapbox-container' route-url='{{ routeUrl}}'></div>
