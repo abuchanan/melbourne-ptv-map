@@ -4,4 +4,4 @@ var path = require('path');
 var server = require('../js/server');
 
 var directory = path.join(__dirname, '..', 'build');
-server(directory);
+server(3000, directory);
