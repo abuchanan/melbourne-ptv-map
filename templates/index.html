@@ -18,11 +18,20 @@
       <div ng-controller="MapController">
         <div id='sidebar'>
           <div ng-repeat='route in routes'>
-            <span class='sidebar-route'
-                  ng-click='select_route(route.shape_id)'>{{ route.long_name }}</span>
+            <div
+              class='sidebar-route'
+              ng-class='{selected: isSelected(route)}'
+              ng-click='toggleRoute(route.shape_id)'>
+              <span class='route-short-name'>{{ route.short_name }}</span>
+              <span class='route-long-name'>{{ route.long_name }}</span>
+            </div>
           </div>
         </div>
-        <div mapbox class='mapbox-container' route-url='{{ routeUrl}}'></div>
+        <div
+          mapbox
+          class='mapbox-container'
+          shapes-url='http://localhost:3000/api/shapes/'
+          visible-shapes='selected'></div>
       </div>
     </div>
 

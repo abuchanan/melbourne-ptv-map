@@ -14,17 +14,26 @@ function RoutesService($http) {
 RoutesService.$inject = ['$http'];
 
 function MapController($scope, Routes) {
+  $scope.selected = [];
+  $scope.routes = [];
+
+  $scope.isSelected = function(route) {
+    return $scope.selected.indexOf(route.shape_id) != -1;
+  }
 
   Routes.listAll().then(function(routes) {
     $scope.routes = routes;
   });
 
-  $scope.select_route = function(shapeId) {
+  $scope.toggleRoute = function(shapeId) {
     console.log("select route", shapeId);
-    $scope.routeUrl = "http://localhost:3000/api/shape/" + shapeId;
+    var idx = $scope.selected.indexOf(shapeId);
+    if (idx == -1) {
+      $scope.selected.push(shapeId);
+    } else {
+      $scope.selected.splice(idx);
+    }
   };
-
-  $scope.routeUrl = "http://localhost:3000/api/shape/2";
 }
 MapController.$inject = ['$scope', 'RoutesService'];
 

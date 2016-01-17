@@ -19,8 +19,18 @@
 .sidebar-route {
   cursor: pointer;
   padding: 0 5px;
+  margin: 4px 0;
 }
 
-.sidebar-route:hover {
+.sidebar-route:hover,
+.sidebar-route.selected {
   background-color: #ddd;
+}
+
+.sidebar-route .route-short-name {
+  padding: 2px 4px;
+  border-radius: 5px;
+  background-color: #588CD6;
+  color: white;
+  font-weight: bold;
 }
