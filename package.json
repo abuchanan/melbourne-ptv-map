@@ -16,7 +16,7 @@
     "build:copy": "node js/build/copy ./build",
     "prebuild": "npm run clean",
     "build": "npm run build:copy && npm run build:bundle",
-    "serve": "node js/build/serve 3000 ./data.db ./build",
+    "serve": "node js/server/serve 3000 ./data.db ./build",
     "clean": "rimraf build"
   },
   "repository": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/abuchanan/melbourne-ptv-map#readme",
   "devDependencies": {
     "adm-zip": "^0.4.7",
-    "bluebird": "^3.1.1",
+    "bluebird": "^2.9.24",
     "browserify": "^13.0.0",
     "browserify-incremental": "^3.0.1",
     "csv-string": "^2.3.0",

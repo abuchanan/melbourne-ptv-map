@@ -4,8 +4,7 @@ var path = require('path');
 var express = require('express');
 var api = require('./api');
 
-
-module.exports = function(dbPath, port, directory) {
+function serve(dbPath, port, directory) {
   var db = knex({
     client: 'sqlite3',
     connection: {
@@ -30,4 +29,22 @@ module.exports = function(dbPath, port, directory) {
 
     console.log('App listening at http://%s:%s', host, port);
   });
+}
+
+module.exports = serve;
+
+
+if(require.main === module) {
+  var yargs = require('yargs');
+
+  var argv = yargs
+    .usage('Usage: $0 port path/to/db path/to/app_root')
+    .demand(3)
+    .argv;
+
+  var port = argv._[0];
+  var dbPath = argv._[1];
+  var appRoot = argv._[2];
+
+  serve(dbPath, port, appRoot);
 }
