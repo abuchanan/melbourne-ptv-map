@@ -1,18 +1,17 @@
 var fs = require('fs');
 var path = require('path');
 var express = require('express');
-
-var db = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: path.join(__dirname, '..', '..', 'data.db')
-  }
-});
-
 var api = require('./api');
 
 
-module.exports = function(port, directory) {
+module.exports = function(dbPath, port, directory) {
+  var db = knex({
+    client: 'sqlite3',
+    connection: {
+      filename: dbPath
+    }
+  });
+
   var app = express();
   app.use(express.static(directory));
 

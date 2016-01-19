@@ -13,21 +13,21 @@ var ROUTE_TYPES = [
 ];
 
 
-function parse_csv_file(parse_row, path) {
+function parseCsvFile(parseRow, path) {
   var contents = fs.readFileSync(path).toString();
   var rows = csv.parse(contents);
   var records = [];
 
   // Header row is skipped
   for (var i = 1; i < rows.length; i++) {
-    var record = parse_row(rows[i]);
+    var record = parseRow(rows[i]);
     records.push(record);
   }
   return records;
 }
 
 
-function parse_route_row(row) {
+function parseRouteRow(row) {
   var type_id = parseInt(row[4]);
   var type = ROUTE_TYPES[type_id];
 
@@ -41,7 +41,7 @@ function parse_route_row(row) {
 }
 
 
-function parse_shape_row(row) {
+function parseShapeRow(row) {
   return {
     id: row[0],
     latitude: parseFloat(row[1]),
@@ -52,7 +52,7 @@ function parse_shape_row(row) {
 }
 
 
-function parse_trip_row(row) {
+function parseTripRow(row) {
   return {
     route_id: row[0],
     service_id: row[1],
@@ -65,7 +65,7 @@ function parse_trip_row(row) {
 
 
 module.exports = {
-  parse_routes_file: parse_csv_file.bind(null, parse_route_row),
-  parse_shapes_file: parse_csv_file.bind(null, parse_shape_row),
-  parse_trips_file: parse_csv_file.bind(null, parse_trip_row),
+  parseRoutesFile: parseCsvFile.bind(null, parseRouteRow),
+  parseShapesFile: parseCsvFile.bind(null, parseShapeRow),
+  parseTripsFile: parseCsvFile.bind(null, parseTripRow),
 }
