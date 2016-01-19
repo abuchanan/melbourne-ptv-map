@@ -13,7 +13,7 @@ Check out the scripts in ```package.json``` for more build tools.
 - AngularJS - GUI framework
 - Node.js - desktop/server Javascript VM
 - Mapbox GL JS - Map framework
-- GTFS - encoding for transit data
+- GTFS - format of transit data
 
 ### Data Source
 

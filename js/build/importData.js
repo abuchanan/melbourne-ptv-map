@@ -52,6 +52,8 @@ function batchInsert(table, rows) {
 
 
 function importData(routeType) {
+  console.log("Importing", routeType);
+  
   var typeCode = routeTypeCodes[routeType].toString();
   var routesPath = path.join(rawDataPath, typeCode, 'routes.txt');
   var tripsPath = path.join(rawDataPath, typeCode, 'trips.txt');
@@ -82,6 +84,9 @@ function importData(routeType) {
 
 
 importData("metro tram")
+.then(function() {
+  return importData("metro bus");
+})
 .finally(function() {
   db.destroy();
 });
