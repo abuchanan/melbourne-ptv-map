@@ -18,19 +18,29 @@
       <div ng-controller="MapController">
         <div id='sidebar' ng-cloak>
 
-          <ul>
-            <li ng-click="selectedPane = 'tram'">Tram</li>
-            <li ng-click="selectedPane = 'bus'">Bus</li>
+          <ul class='topnav' ng-show='selectedPane == "topnav"'>
+            <li ng-click="selectedPane = 'tram'">Metro Tram</li>
+            <li ng-click="selectedPane = 'bus'">Metro Bus</li>
+            <li ng-click="selectedRoutes = []">Select None</li>
           </ul>
 
-          <div ng-show="selectedPane == 'tram'">
-            Tram
-            <route-list routes='tramRoutes' selected='selectedRoutes' />
+          <div ng-show='selectedPane == "tram"'>
+            <div
+              class="nav-button"
+              ng-click="selectedPane = 'topnav'">&lt; Back</div>
+            <route-list
+              routes='tramRoutes'
+              selected='selectedRoutes' />
           </div>
 
-          <div ng-show="selectedPane == 'bus'">
-            Bus
-            <route-list routes='busRoutes' selected='selectedRoutes' />
+          <div ng-show='selectedPane == "bus"'>
+            <div
+              class="nav-button"
+              ng-click="selectedPane = 'topnav'">&lt; Back</div>
+
+            <route-list
+              routes='busRoutes'
+              selected='selectedRoutes' />
           </div>
 
         </div>

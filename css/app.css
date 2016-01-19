@@ -12,8 +12,8 @@
   width: 20%;
   z-index: 100;
   background-color: white;
-  padding: 20px 0;
   overflow-y: scroll;
+
 }
 
 .sidebar-route {
@@ -36,4 +36,20 @@
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
+}
+
+.topnav {
+  padding: 0;
+}
+
+.nav-button,
+.topnav li {
+  list-style-type: none;
+  padding: 5px 20px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.route-list {
+  padding: 20px 0;
 }

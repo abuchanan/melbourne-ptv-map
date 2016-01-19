@@ -2,7 +2,7 @@
 function MapController($scope, Routes) {
   $scope.selectedRoutes = [];
   $scope.routes = [];
-  $scope.selectedPane = 'tram';
+  $scope.selectedPane = 'topnav';
 
   Routes.listAll("metro tram").then(function(routes) {
     $scope.tramRoutes = orderTramRoutes(routes);

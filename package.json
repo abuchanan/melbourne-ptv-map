@@ -10,7 +10,7 @@
     "db:create": "node js/build/createDb ./data.db",
     "db:import": "node js/build/importData ./data.db ./raw_data",
     "db:bestRoutes": "node js/build/bestRoutes ./data.db",
-    "db:unzip": "",
+    "db:unzip": "node js/build/unzipDb ./data.db.gz",
     "db": "npm run db:create && npm run db:import && npm run db:bestRoutes",
     "build:bundle": "node js/build/bundleApp ./build",
     "build:copy": "node js/build/copy ./build",

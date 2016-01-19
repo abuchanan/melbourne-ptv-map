@@ -1,9 +1,11 @@
-<div ng-repeat='route in routes'>
-  <div
-    class='sidebar-route'
-    ng-class='{selected: isSelected(route)}'
-    ng-click='toggle(route)'>
-    <span class='route-short-name'>{{ route.short_name }}</span>
-    <span class='route-long-name'>{{ route.long_name }}</span>
+<div class='route-list'>
+  <div ng-repeat='route in routes'>
+    <div
+      class='sidebar-route'
+      ng-class='{selected: isSelected(route)}'
+      ng-click='toggle(route)'>
+      <span class='route-short-name'>{{ route.short_name }}</span>
+      <span class='route-long-name'>{{ route.long_name }}</span>
+    </div>
   </div>
 </div>
