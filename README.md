@@ -1,5 +1,13 @@
 An interactive map for viewing Melbourne public transit routes.
 
+### Installation
+
+1. Unzip the database: ```npm run unzipDb```
+2. Build the app: ```npm run build```
+3. Run the server: ```npm run serve```
+
+Check out the scripts in ```package.json``` for more build tools.
+
 ### Technologies Used
 
 - AngularJS - GUI framework

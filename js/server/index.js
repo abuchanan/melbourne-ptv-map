@@ -1,4 +1,5 @@
 var fs = require('fs');
+var knex = require('knex');
 var path = require('path');
 var express = require('express');
 var api = require('./api');

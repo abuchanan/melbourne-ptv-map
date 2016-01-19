@@ -10,4 +10,4 @@ var dbPath = argv._[1];
 var appRoot = argv._[2];
 
 var server = require('../server');
-server(dbPath, port, directory);
+server(dbPath, port, appRoot);
